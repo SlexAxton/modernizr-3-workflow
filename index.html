@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>Modernizr 3 Workflow</title>
+
+<meta name="description" content="Integrating the upcoming Modernizr 3 into your workflow.">
+<meta name="author" content="Alex Sexton">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="css/reveal.min.css">
+<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<style type="text/css">
+  /* quick overrides */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  text-transform: none;
+}
+.reveal h1 {
+  font-size: 3em;
+}
+.reveal pre {
+  font-size: 1em;
+  width: 110%;
+  margin-left: -5%;
+  padding: 10px;
+  background-color: rgba(0,0,0, 0.1);
+}
+.reveal pre code {
+  padding: 10px;
+  max-height: 700px;
+  /*-webkit-filter: invert(100%); BACK POCKET */
+}
+section[t] h1 {
+  font-size: 2.75em;
+  margin-bottom: 1em;
+}
+section[t] h2 {
+  letter-spacing: -2px;
+}
+section[t] blockquote {
+  border: 4px solid #CDC9C3;
+  border-radius: 10px;
+  background-color: #EFEFEF;
+  padding: 20px;
+}
+.reveal em {
+  color: #BADA55;
+  font-style: normal;
+  text-shadow: 1px 1px 0 #FFFFFF, 3px 3px 0 #000000;
+}
+.reveal iframe {
+  max-height: none;
+}
+.reveal img {
+  max-width: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+
+    <section>
+      <h1>A Modernizr 3 Workflow</h1>
+      <h4>HTML5DevConf, April 2013</h4>
+      <p>
+      <small><a href="http://alexsexton.com">Alex Sexton</a> / <a href="http://twitter.com/slexaxton">@SlexAxton</a></small>
+      </p>
+    </section>
+
+<section data-markdown t>
+<script type="text/template">
+## Me
+
+* UI Engineer at Bazaarvoice in Austin, TX
+* Hate bulleted lists
+* jQuery Board of Advisors
+* Modernizr Core Team
+* Run TXJS
+</script>
+</section>
+
+
+<!-------START NORMAL SLIDES ----------->
+
+<section data-markdown t>
+<script type="text/template">
+## Slide 1
+</script>
+</section>
+
+
+<!-------END NORMAL SLIDES ----------->
+
+    <section>
+      <h1>Fin.</h1>
+      <h3>Questions?</h3>
+
+      <p>
+      <small><br> <a href="http://alexsexton.com/talks/modernizr-3-workflow">alexsexton.com/talks/modernizr-3-workflow</a></small>
+      </p>
+    </section>
+
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+
+<script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+  progress: true,
+  history: true,
+  center: true,
+  width: 1024,
+
+  theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+  // Optional libraries used to extend on reveal.js
+  dependencies: [
+    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+      hljs.initHighlightingOnLoad();
+    } },
+    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    //,{ src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+  ]
+});
+
+</script>
+
+</body>
+</html>
