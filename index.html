@@ -39,7 +39,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
 }
 .reveal pre {
   font-size: 1em;
-  width: 110%;
+  width: 118%;
   margin-left: -5%;
   padding: 10px;
   background-color: rgba(0,0,0, 0.1);
@@ -203,6 +203,588 @@ An environment that is fragmented, inconsistent and unpredictable in nearly *eve
 </script>
 </section>
 
+<section>
+<section data-markdown>
+<script type="text/template">
+# Dealing with Fragmentation
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Different Screen Sizes
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Different APIs
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Different *speeds*
+</script>
+
+<aside class="notes">
+This is one that's hard to detect, but one of the
+most important ones.
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Different Hardware Controls
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Different Everything
+</script>
+
+<aside class="notes">
+Will your app work on a google glass?
+</aside>
+</section>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Dealing with this stuff is
+# Responsive Web Design
+</script>
+<aside class="notes">
+But there are lots of ways to respond.
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Responsive Web Design
+# is *not* just
+## fitting on different screen sizes
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# Prior Art
+
+* N Zakas - [Progressive Enhancement 2.0](http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic)
+* P Irish - [!!!put in his TAFEE post here](http://paulirish.com/tafee)
+</script>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-1.png](lib/img/tv-1.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-2.png](lib/img/tv-2.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-3.png](lib/img/tv-3.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-4.png](lib/img/tv-4.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-5.png](lib/img/tv-5.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+<section data-markdown>
+<script type="text/template">
+## The TV Analogy
+
+![lib/img/tv-6.png](lib/img/tv-6.png)
+
+<small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
+</script>
+</section>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# TAFEE
+#### (pronounced: taffy)
+
+**t**iered, **a**daptive **f**ront-**e**nd **e**xperiences
+
+Customizing the experience to the unique capabilities of each browser, prioritizing a fast and good UX over consistency.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# There are *tools* to help you!
+</script>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## Modernizr
+
+It's an object with a bunch of booleans on it.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr
+
+It's an *ideology*
+
+&nbsp;
+
+<small>In the not creepy, and with exceptions kind of way</small>
+</script>
+</section>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## It's popular!
+### Used by:
+
+* rollerderbyspace.com
+* blueskypowerwashing.com
+* antportal.com
+* twitter
+* microsoft
+* google
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# Fork on *Features*
+
+If you are building conditional logic into
+
+your app for runtime differences
+
+### make that condition a feature.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## How Modernizr Works (JS)
+
+```javascript
+if (Modernizr.sometest) {
+  // sometest is supported
+}
+else {
+  // sometest is *not* supported
+}
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## How Modernizr Works (CSS)
+
+```html
+<button class="glossy">Click Me!</button>
+```
+
+```css
+.no-js .glossy,
+.no-cssgradients .glossy {
+  background: url("img/glossybg.png");
+}
+
+.cssgradients .glossy {
+  background-image: linear-gradient(top, #555, #333);
+}
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Aside**: What browser is this?
+
+```
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_1) AppleWebKit/535.6 (KHTML, like Gecko) Chrome/16.0.899.0 Safari/535.6
+```
+</script>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+# The *myth* of the polyfill
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Polyfill
+
+"A shim that mimics a future API providing fallback functionality to older browsers."
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Polyfill
+
+Pretty much a fancy word for **shim**.
+
+<aside class="notes">
+Bosses love fancy words
+</aside>
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Polyfill
+
+* Coined by remy sharp in Introducing HTML5
+* Regressive Enhancement
+* Pretty useful in a lot of situations!
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The Myth
+
+You can just use polyfills to upgrade old browsers to new capabilities.
+</script>
+
+<aside class="notes">
+This goes directly against the 'dont show HDTV owners Black &amp; White 4:3 TV' thing from before.
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Polyfills
+
+Come at a *cost*.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+### The answer lies somewhere between
+
+## Use them for **everything**
+
+# &
+
+## Use them for **nothing**
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+# Modernizr **3**
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## Build System
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## Integration
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## Supported Test Coverage
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## CSS @Supports
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## Best Practices
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# What's new?
+
+## Yepnope
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Build/Integration**
+
+```json
+// modernizr.json
+{
+  "classPrefix": "my-"
+  "options": ["load", "html5printshiv"],
+  "tests": ["audio", "video", "cssgradients"]
+}
+```
+
+```sh
+npm install -g modernizr
+modernizr modernizr.json > modernizr.custom.js
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Build/Integration**
+
+Treat `modernizr.json` like you would `package.json`
+
+</script>
+
+<aside class="notes">
+We're considering support for just including your modernizr config inside of the package.json file if you have it.
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Build/Integration**
+
+Your `modernizr.custom.js` script will have the
+
+**absolute minimum** contents.
+
+Consider inlining this script if it's small enough.
+</script>
+</section>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Supported Tests**
+
+No more `community_detects`.
+
+Everything gets built as part of the core build.
+
+This is faster than the old `Modernizr.addTest` stuff.
+</script>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Best Practices**
+
+We want to align the **TAFEE** ideology with the **Modernizr.load** mentality.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Best Practices**
+
+Many separate file loads, lots of variance,
+
+no builds, bad performance
+
+```javascript
+Modernizr.load([{
+  test: Modernizr.audio,
+  yep: ['a.js'],
+  nope: ['b.js']
+}, {
+  test: Modernizr.video,
+  yep: ['c.js'],
+  nope: ['d.js']
+},{
+  test: Modernizr.cssgradients,
+  yep: ['e.js'],
+  nope: ['f.js']
+},
+...]);
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Best Practices**
+
+Think of your app like people think of televisions.
+
+&nbsp;
+
+# Low-Res -> SD -> HD
+
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **Best Practices**
+
+Define a baseline of features for each tier
+
+```javascript
+// Simplified -- make your OWN tiers
+var TIER;
+if (Modernizr.video && Modernizr.cssgradients) {
+  TIER = 'HD';
+}
+else if (Modernizr.cssgradients) {
+  TIER = 'SD';
+}
+else {
+  TIER = 'LOWRES';
+}
+
+// One Async request
+Modernizr.load(TIER + '.build.js');
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# Tiered Builds
+
+Promote more realistic feature sets for each browser
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# Tiered Builds
+
+## Promote better *performance*
+
+#### You're never trying to do too much with old browsers
+
+#### You're never loading more than the browser needs
+
+#### You're ideally loading a single, small, feature-specific built js file
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# Tiered Builds
+
+Reduces the energy in testing all combinations of feature support
+
+<small>(If you <strong>can</strong> test all variations easily, that's an ok thing to do)</small>
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## **Recap**
+
+### **Don't** worry about identical experiences
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Recap**
+
+### **Do** worry about appropriate, performant experiences
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Recap**
+
+### **Don't** create new problems with too much '*enhancement*'
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Recap**
+
+### **Do** branch on features and polyfill where convenient, easy, and fast
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Recap**
+
+### **Do** integrate Modernizr **3** into your build process to save requests and space
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# **Do** build cool stuff.
+</script>
+</section>
+
+</section>
 
 
 <!-------END NORMAL SLIDES ----------->
