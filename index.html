@@ -73,6 +73,9 @@ section[t] blockquote {
 .reveal img {
   max-width: none;
 }
+.reveal [data-small-code] pre {
+  font-size: 0.55em;
+}
 </style>
 </head>
 
@@ -637,6 +640,37 @@ modernizr modernizr.json > modernizr.custom.js
 </script>
 </section>
 
+<section data-markdown data-small-code>
+<script type="text/template">
+## Modular Everything
+
+```javascript
+/*!
+{
+  "name": "@font-face",
+  "property": "fontface",
+  "tags": ["css"],
+  "knownBugs": [
+    "False Positive: WebOS http://github.com/Modernizr/Modernizr/issues/342",
+    "False Postive: WP7 http://github.com/Modernizr/Modernizr/issues/538"
+  ]
+}
+!*/
+define(['Modernizr', 'testStyles'], function( Modernizr, testStyles ) {
+  testStyles('@font-face {font-family:"font";src:url("https://")}', function( node, rule ) {
+    var style = document.getElementById('smodernizr');
+    var sheet = style.sheet || style.styleSheet;
+    var cssText = sheet ? (sheet.cssRules && sheet.cssRules[0] ? sheet.cssRules[0].cssText : sheet.cssText || '') : '';
+    var bool = /src/i.test(cssText) && cssText.indexOf(rule.split(' ')[0]) === 0;
+
+    Modernizr.addTest('fontface', bool);
+  });
+});
+```
+</script>
+</section>
+
+
 <section data-markdown>
 <script type="text/template">
 ## Modernizr 3: **Build/Integration**
@@ -667,13 +701,30 @@ Consider inlining this script if it's small enough.
 <script type="text/template">
 ## Modernizr 3: **Supported Tests**
 
-No more `community_detects`.
+No more `community-detects`.
 
 Everything gets built as part of the core build.
 
 This is faster than the old `Modernizr.addTest` stuff.
 </script>
 </section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **bonus**
+
+Callbacks for async tests!
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Modernizr 3: **bonus**
+
+Touch Events vs. Pointer Events vs. Touch
+</script>
+</section>
+
 
 <section>
 <section data-markdown>
@@ -930,7 +981,7 @@ Pretty much a fancy name for a bootstrap file
 </script>
 </section>
 
-<section data-markdown>
+<section data-markdown data-small-code>
 <script type="text/template">
 ## Simple Example of Scout File
 ### (For studying later :)
