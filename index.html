@@ -341,8 +341,12 @@ But there are lots of ways to respond.
 
 **t**iered, **a**daptive **f**ront-**e**nd **e**xperiences
 
-Customizing the experience to the unique capabilities of each browser, prioritizing a fast and good UX over consistency.
+Customizing the experience to the unique capabilities of each browser, **prioritizing a fast and good UX over consistency.**
 </script>
+
+<aside class="notes">
+A lot of people leave off the second part, in favor for things that are just broken in each environment
+</aside>
 </section>
 
 <section data-markdown>
@@ -416,6 +420,21 @@ else {
 
 <section data-markdown>
 <script type="text/template">
+## How Modernizr Works (JS)
+
+```javascript
+if (Modernizr.geolocation) {
+  // geolocation is supported
+}
+else {
+  // geolocation is *not* supported
+}
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
 ## How Modernizr Works (CSS)
 
 ```html
@@ -467,14 +486,40 @@ Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_1) AppleWebKit/535.6 (KHTML, like Ge
 Pretty much a fancy word for **shim**.
 
 <aside class="notes">
-Bosses love fancy words
+Bosses love fancy words.
+<br>
+Though polyfills specifically mimic standard apis
 </aside>
 </script>
 </section>
 
 <section data-markdown>
 <script type="text/template">
-## Polyfill
+## Prollyfill
+
+A shim that mimics what will probably be a future API
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Parlayfill
+
+Betting that an API will one day exist.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Poorlyfill
+
+A shim that doesn't really fill anything useful.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Polyfill**
 
 * Coined by remy sharp in Introducing HTML5
 * Regressive Enhancement
