@@ -111,7 +111,7 @@ section[t] blockquote {
 ## Your Goal
 #### (*usually*)
 
-To deliver the best possible experience to the widest audience possible
+To deliver the best possible **experience** to the **widest audience** possible
 </script>
 
 <aside class="notes">
@@ -876,6 +876,110 @@ Pretty much a fancy name for a bootstrap file
 # **Cached Forever**
 </script>
 </section>
+
+<section data-markdown>
+<script type="text/template">
+## The **Scout File**
+
+## This is where you'd use *modernizr* to load exactly the build that the user needs (and nothing more)
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Simple Example of Scout File
+### (For studying later :)
+```javascript
+// Simplified example of a scout file
+(function () {
+  // Feature test some stuff
+  var features = {
+    svg: Modernizr.svg,
+    touch: Modernizr.touch
+  };
+
+  // The async script injection fanfare
+  var script = document.createElement('script');
+  var fScript = document.getElementsByTagName('script')[0];
+
+  var baseUrl = '//cool-cdn.com/bucket/' + __BUILDNUM__ + '/';
+
+
+  // Build up a file url based on the features of this user
+  var featureString = '';
+  for (var i in features) {
+    if (features.hasOwnProperty(i) && features[i]) {
+      featuresString += '-' + i;
+    }
+  }
+  var package = 'build' + featureString + '.js'
+
+  // Set the URL on the script
+  script.src = baseUrl + package;
+
+  // Inject the script
+  fScript.parentNode.insertBefore(script, fScript);
+
+  // Start loading the data that you know you can grab right away
+  // JSONP is small and easy to kick off for this.
+  var dataScript = document.createElement('script');
+
+  // Create a JSONP Url based on some info we have.
+  // We'll assume localstorage for this example
+  // though a cookie or url param might be safer.
+
+  window.appInitData = function (initialData) {
+    // Get it to the core application when it eventually
+    // loads or if it's already there.
+    // A global is used here for ease of example
+    window.comeGetMe = initialData;
+  };
+
+  // If we're on a static site, the url might tell us
+  // the data we need, and the user cookie might customize
+  // it. Simplified.
+  dataScript.src = '//api.mysite.com' +
+                   document.location.pathname +
+                   '?userid=' +
+                   localStorage.getItem('userid') +
+                   '&callback=appInitData;';
+
+  // Inject it
+  fScript.parentNode.insertBefore(dataScript, fScript);
+})();
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Edge Cache **Everything**
+
+Use any of the popular CDNs to get your **static builds** closer to their consumers
+</script>
+</section>
+
+
+<section data-markdown>
+<script type="text/template">
+## **All Together**
+
+### Enjoy a **fast**, well-functioning experience, tailored for **specific** audiences based on their own expectations.
+</script>
+
+<aside class="notes">
+This is pretty close to our goal of 'best experience for widest possible audience'
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Remember: **Your Goal**
+
+To deliver the best possible **experience** to the **widest audience** possible
+</script>
+</section>
+
 
 </section>
 
