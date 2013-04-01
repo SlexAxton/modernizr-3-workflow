@@ -282,7 +282,7 @@ But there are lots of ways to respond.
 <script type="text/template">
 ## The TV Analogy
 
-![lib/img/tv-1.png](lib/img/tv-1.png)
+![lib/img/tv-2.png](lib/img/tv-2.png)
 
 <small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
 </script>
@@ -291,7 +291,7 @@ But there are lots of ways to respond.
 <script type="text/template">
 ## The TV Analogy
 
-![lib/img/tv-2.png](lib/img/tv-2.png)
+![lib/img/tv-1.png](lib/img/tv-1.png)
 
 <small>http://www.slideshare.net/nzakas/progressive-enhancement-20-conference-agnostic</small>
 </script>
@@ -730,11 +730,153 @@ Promote more realistic feature sets for each browser
 <script type="text/template">
 # Tiered Builds
 
-Reduces the energy in testing all combinations of feature support
+Reduce the energy in testing all combinations of feature support
 
 <small>(If you <strong>can</strong> test all variations easily, that's an ok thing to do)</small>
 </script>
 </section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+# Deploying JavaScript Applications
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## A recent blogpost
+
+[alexsexton.com/blog/2013/03/deploying-javascript-applications/](http://alexsexton.com/blog/2013/03/deploying-javascript-applications/)
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Performance and UX are **inextricably** linked
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+# **Balance**
+
+&nbsp;
+
+### Lots of cool JS, CSS, &amp; Images
+## **vs.**
+### Small payloads and minimal bloat
+</script>
+</section>
+
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+# **Builds**
+
+Develop with **builds** in mind.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Use a **dependency management** tool
+
+#### RequireJS, Browserify, Rails Asset Pipeline, etc
+
+I prefer tools that allow me to declare my dependencies **once**.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## Prioritize *fast*, *easy* builds
+
+```javascript
+grunt build
+```
+
+![lib/img/gruntbuild.gif](lib/img/gruntbuild.gif)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## Load the **absolute minimum** on pageload
+
+### This is where **Modernizr** can help.
+
+```javascript
+// Don't load in polyfills for Chrome 25
+// Don't load WebGL code for IE6
+Modernizr.load(TIER + '-init.build.js');
+```
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## JavaScript **Parsing** is slow, too
+
+File-size aside, **the amount** of JS you load makes a difference
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Defer** functionality until you think you need it
+
+![lib/img/delaypackage.gif](lib/img/delaypackage.gif)
+</script>
+</section>
+</section>
+
+<section>
+<section data-markdown>
+<script type="text/template">
+## The **Scout File**
+
+Pretty much a fancy name for a bootstrap file
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The **Scout File**
+
+## One file that is the **brain** for deciding what gets loaded.
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The **Scout File**
+
+## Super small - no dependencies
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## The **Scout File**
+
+## Lightly Cached
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+## **Everything Else**
+
+# **Cached Forever**
+</script>
+</section>
+
 </section>
 
 <section>
